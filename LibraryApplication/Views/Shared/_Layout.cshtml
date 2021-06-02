@@ -1,0 +1,229 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" type="image/png" sizes="16x16" href="../plugins/images/favicon.png">
+    <title>Elite Admin - is a responsive admin template</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Menu CSS -->
+    <link href="~/Content/css/sidebar-nav.min.css" rel="stylesheet">
+    <!-- vector map CSS -->
+    <link href="~/Content/css/jquery-jvectormap-2.0.2.css" rel="stylesheet" />
+    <link href="~/Content/css/css-chart.css" rel="stylesheet">
+    <!-- animation CSS -->
+    <link href="~/Content/css/animate.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/css/style.css" rel="stylesheet">
+    <!-- color CSS -->
+    <link href="~/Content/css/blue.css" id="theme" rel="stylesheet">
+    <link href="~/Content/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/css/buttons.dataTables.min.css" rel="stylesheet" />
+    <link href="~/Content/css/sweetalert2.min.css" rel="stylesheet" />
+    <style>
+        tfoot input {
+            width: 100%;
+            padding: 3px;
+            box-sizing: border-box;
+        }
+    </style>
+
+</head>
+<body>
+    <!-- Preloader -->
+    <div class="preloader">
+        <div class="cssload-speeding-wheel"></div>
+    </div>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-default navbar-static-top m-b-0">
+            <div class="navbar-header">
+                <a class="navbar-toggle hidden-sm hidden-md hidden-lg " href="javascript:void(0)" data-toggle="collapse" data-target=".navbar-collapse"><i class="ti-menu"></i></a>
+                <div class="top-left-part"><a class="logo" href="#"><b><img src="~/Content/Image/eliteadmin-logo.png" alt="home" /></b><span class="hidden-xs"><img src="~/Content/Image/eliteadmin-text.png" alt="home" /></span></a></div>
+                <ul class="nav navbar-top-links navbar-left hidden-xs">
+                    <li><a href="javascript:void(0)" class="open-close hidden-xs waves-effect waves-light"><i class="icon-arrow-left-circle ti-menu"></i></a></li>
+
+                </ul>
+                <ul class="nav navbar-top-links navbar-right pull-right">
+
+                    <li class="dropdown">
+                        <a class="dropdown-toggle profile-pic" data-toggle="dropdown" href="#"> <img src="~/Content/Image/user-male.png" alt="user-img" width="36" class="img-circle"><b class="hidden-xs">Steave</b> </a>
+                        <ul class="dropdown-menu dropdown-user animated flipInY">
+                            <li><a href="#"><i class="ti-user"></i> My Profile</a></li>
+                            <li><a href="#"><i class="ti-email"></i> Inbox</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#"><i class="ti-settings"></i> Account Setting</a></li>
+                            <li role="separator" class="divider"></li>
+                            <li><a href="#"><i class="fa fa-power-off"></i> Logout</a></li>
+                        </ul>
+                        <!-- /.dropdown-user -->
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+        <!-- Left navbar-header -->
+        <div class="navbar-default sidebar" role="navigation">
+            <div class="sidebar-nav navbar-collapse slimscrollsidebar">
+                <ul class="nav" id="side-menu">
+
+                    <li class="user-pro">
+                        <a href="#" class="waves-effect"><img src="~/Content/image/user-male.png" alt="user-img" class="img-circle"> <span class="hide-menu"> Steve Gection<span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="javascript:void(0)"><i class="ti-user"></i> My Profile</a></li>
+                            <li><a href="javascript:void(0)"><i class="ti-email"></i> Inbox</a></li>
+                            <li><a href="javascript:void(0)"><i class="ti-settings"></i> Account Setting</a></li>
+                            <li><a href="javascript:void(0)"><i class="fa fa-power-off"></i> Logout</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-small-cap m-t-10">--- Main Menu</li>
+                    <li>
+                        <a href="#" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">Statistics </span> </a>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect"><i data-icon=")" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Categories <span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="@Url.Action("Index", "Category")">List all Categories</a></li>
+                            <li><a id="ctgAdd" href="javascript:void(0)">Add a new Category</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" class="waves-effect"><i data-icon=")" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Writers <span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="@Url.Action("Index", "Writer")">List all Writers</a></li>
+                            <li><a id="wrtAdd" href="javascript:void(0)">Add a new Writer</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#" class="waves-effect"><i data-icon=")" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Books <span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="@Url.Action("Index", "Book")">List all Books</a></li>
+                            <li><a href="@Url.Action("AddBook", "Book")">Add a new Books</a></li>
+                            <li><a href="@Url.Action("BorrowedBook", "Book")">Taken Books</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" class="waves-effect"><i data-icon=")" class="linea-icon linea-basic fa-fw"></i> <span class="hide-menu">Members <span class="fa arrow"></span></span></a>
+                        <ul class="nav nav-second-level">
+                            <li><a href="@Url.Action("Index", "Member")">List all Members</a></li>
+                            <li><a href="@Url.Action("AddMember", "Member")">Add a new Members</a></li>
+
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="#" class="waves-effect"><i class="linea-icon linea-basic fa-fw" data-icon="v"></i> <span class="hide-menu">User Operations</span> </a>
+                    </li>
+
+                </ul>
+            </div>
+        </div>
+        <!-- Left navbar-header end -->
+        <!-- Page Content -->
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row bg-title">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-xs-12">
+                        <h4 class="page-title">@ViewBag.Title</h4>
+                    </div>
+
+                </div>
+                <div class="white-box">
+                    @RenderBody()
+                </div>
+
+
+                <!-- /.right-sidebar -->
+            </div>
+            <!-- /.container-fluid -->
+            <footer class="footer text-center"> 2016 &copy; Elite Admin brought to you by themedesigner.in </footer>
+        </div>
+        <!-- /#page-wrapper -->
+    </div>
+
+    <!-- /#wrapper -->
+    <!-- jQuery -->
+    <script src="~/Scripts/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <!-- Menu Plugin JavaScript -->
+    <script src="~/Scripts/sidebar-nav.min.js"></script>
+    <!--slimscroll JavaScript -->
+    <script src="~/Scripts/jquery.slimscroll.js"></script>
+    <!--Wave Effects -->
+    <script src="~/Scripts/waves.js"></script>
+    <!-- Flot Charts JavaScript -->
+    <script src="~/Scripts/jquery.flot.js"></script>
+    <script src="~/Scripts/jquery.flot.tooltip.min.js"></script>
+    <!-- google maps api -->
+    <script src="~/Scripts/jquery-jvectormap-2.0.2.min.js"></script>
+    <script src="~/Scripts/jquery-jvectormap-world-mill-en.js"></script>
+    <!-- Sparkline charts -->
+    <script src="~/Scripts/jquery.sparkline.min.js"></script>
+    <!-- EASY PIE CHART JS -->
+    <script src="~/Scripts/jquery.easypiechart.min.js"></script>
+    <script src="~/Scripts/easy-pie-chart.init.js"></script>
+    <!-- Custom Theme JavaScript -->
+    <script src="~/Scripts/custom.js"></script>
+    <script src="~/Scripts/dashboard2.js"></script>
+    <!--Style Switcher -->
+    <script src="~/Scripts/jQuery.style.switcher.js"></script>
+    <!--Data Tables -->
+    <script src="~/Scripts/jquery.dataTables.min.js"></script>
+
+    <script src="~/Scripts/dataTables.buttons.min.js"></script>
+
+    <script src="~/Scripts/jszip.min.js"></script>
+
+    <script src="~/Scripts/pdfmake.min.js"></script>
+
+    <script src="~/Scripts/vfs_fonts.js"></script>
+
+    <script src="~/Scripts/buttons.html5.min.js"></script>
+    <script src="~/Scripts/buttons.print.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            // Setup - add a text input to each footer cell
+            $('#example tfoot th').each(function () {
+                var title = $(this).text();
+                $(this).html('<input type="text" placeholder="Search ' + title + '" />');
+            });
+
+            // DataTable
+            var table = $('#example').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copy', 'csv', 'excel', 'pdf', 'print'
+                ],
+                initComplete: function () {
+                    // Apply the search
+                    this.api().columns().every(function () {
+                        var that = this;
+
+                        $('input', this.footer()).on('keyup change clear', function () {
+                            if (that.search() !== this.value) {
+                                that
+                                    .search(this.value)
+                                    .draw();
+                            }
+                        });
+                    });
+                }
+            });
+
+        });
+    </script>
+    <script src="~/Scripts/sweetalert2.min.js"></script>
+    <script src="~/Scripts/Main.js"></script>
+</body>
+</html>
+

@@ -1,0 +1,50 @@
+﻿@using LibraryApplication.Data.Model;
+@model List<Member>
+
+@{
+    ViewBag.Title = "Books";
+    string categories = "";
+}
+
+<h2>Books</h2>
+
+<table id="example" class="display nowrap" style="width:100%">
+    <thead>
+        <tr>
+            <th>Member Name</th>
+            <th>Identity Number</th>
+            <th>Phone</th>
+            <th>Registration Date</th>
+            <th>Punishment</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var member in Model)
+        {
+            categories = "";
+            <tr>
+                <th>@member.MemberName @member.MemberLastname</th>
+                <th>@member.IdentityNumber</th>
+                <th>@member.PhoneNumber</th>
+                <th>@member.RegistirationDate.ToShortDateString()</th>
+                <th>@member.Punishment</th>
+                <td><a class="btn btn-facebook" value="@member.Id" href="@Url.Action("Update","Member", new {memberId= member.Id})">Update</a> </td>
+                <td><a class="deleteMember btn btn-danger" value="@member.Id">Delete</a> </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>Member Name</th>
+            <th>Identity Number</th>
+            <th>Phone</th>
+            <th>Registration Date</th>
+            <th>Punishment</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+    </tfoot>
+</table>
